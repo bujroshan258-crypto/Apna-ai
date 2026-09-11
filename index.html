@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Apna AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101114;
+      color: white;
+    }
+
+    .app {
+      max-width: 600px;
+      height: 100vh;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px;
+      background: #181a20;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #chat {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .msg {
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-radius: 15px;
+      max-width: 85%;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+
+    .ai {
+      background: #2563eb;
+      margin-right: auto;
+    }
+
+    .user {
+      background: #292c34;
+      margin-left: auto;
+    }
+
+    .input-area {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background: #181a20;
+    }
+
+    #input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 25px;
+      outline: none;
+      font-size: 16px;
+      background: #292c34;
+      color: white;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header>
+      🤖 Apna AI
+    </header>
+
+    <div id="chat">
+
+      <div class="msg ai">
+        Namaste! 👋 Main Apna AI hoon.<br>
+        Aap Hindi ya English mein mujhse baat kar sakte ho.
+      </div>
+
+    </div>
+
+    <div class="input-area">
+
+      <input
+        id="input"
+        type="text"
+        placeholder="Apna message likho..."
+      >
+
+      <button onclick="send()">➤</button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function send() {
+
+      const input = document.getElementById("input");
+      const chat = document.getElementById("chat");
+
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      // User message
+      chat.innerHTML += `
+        <div class="msg user">
+          ${text}
+        </div>
+      `;
+
+      input.value = "";
+
+      // AI reply
+      setTimeout(() => {
+
+        let reply = "";
+
+        const msg = text.toLowerCase();
+
+        if (
+          msg.includes("hello") ||
+          msg.includes("hi") ||
+          msg.includes("namaste")
+        ) {
+          reply = "Namaste! 😊 Kaise ho? Main Apna AI hoon.";
+        }
+
+        else if (msg.includes("kaise ho")) {
+          reply = "Main bilkul badhiya hoon 😄 Aap batao kaise ho?";
+        }
+
+        else if (msg.includes("naam")) {
+          reply = "Mera naam Apna AI hai 🤖";
+        }
+
+        else if (msg.includes("kya kar rahe")) {
+          reply = "Main aapse baat kar raha hoon 😊";
+        }
+
+        else if (msg.includes("thank")) {
+          reply = "You're welcome! ❤️";
+        }
+
+        else {
+          reply =
+            "Demo mode mein hoon 😊<br>" +
+            "Aapka message mujhe mila: <b>" +
+            text +
+            "</b>";
+        }
+
+        chat.innerHTML += `
+          <div class="msg ai">
+            ${reply}
+          </div>
+        `;
+
+        chat.scrollTop = chat.scrollHeight;
+
+      }, 500);
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+
+    // Enter button se message send hoga
+    document
+      .getElementById("input")
+      .addEventListener("keydown", function(e) {
+
+        if (e.key === "Enter") {
+          send();
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
