@@ -1,0 +1,10 @@
+{
+  "name": "APNA AI",
+  "short_name": "APNA AI",
+  "description": "APNA AI - आपका personal AI assistant",
+  "start_url": "/Apna-ai/",
+  "display": "standalone",
+  "background_color": "#020b1d",
+  "theme_color": "#101114",
+  "orientation": "portrait"
+}
