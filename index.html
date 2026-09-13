@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apna AI</title>
+<title>APNA AI</title>
 
 <style>
 *{
@@ -14,379 +14,386 @@
 
 body{
   font-family:Arial, sans-serif;
-  min-height:100vh;
+  background:#020b1d;
   color:white;
-  background:
-    radial-gradient(circle at 15% 20%, #38206b 0, transparent 28%),
-    radial-gradient(circle at 85% 80%, #073b5c 0, transparent 30%),
-    #070b14;
-  overflow:hidden;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-/* APP */
+body::before{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  background:#0066ff;
+  filter:blur(150px);
+  opacity:.18;
+  top:-150px;
+  left:-150px;
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:#7b00ff;
+  filter:blur(150px);
+  opacity:.12;
+  right:-150px;
+  bottom:-100px;
+  z-index:-1;
+}
+
 .app{
   width:100%;
-  max-width:900px;
-  height:100vh;
+  max-width:600px;
+  min-height:100vh;
   margin:auto;
-  display:flex;
-  flex-direction:column;
   position:relative;
+  padding-bottom:85px;
 }
 
 /* HEADER */
-header{
-  height:75px;
+.header{
+  height:70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 20px;
-  background:rgba(10,14,27,.78);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  z-index:5;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+  padding:0 18px;
+  background:rgba(3,14,35,.82);
+  border-bottom:1px solid rgba(40,130,255,.25);
+  backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
 .logo{
-  width:44px;
-  height:44px;
-  border-radius:14px;
   display:flex;
   align-items:center;
-  justify-content:center;
-  font-size:24px;
-  background:linear-gradient(135deg,#7c3aed,#06b6d4);
-  box-shadow:0 0 25px rgba(124,58,237,.5);
+  gap:10px;
+  font-size:23px;
+  font-weight:bold;
 }
 
-.brand-text h1{
-  font-size:21px;
-  letter-spacing:.3px;
-}
-
-.brand-text p{
-  font-size:12px;
-  color:#8e9bb5;
-  margin-top:3px;
-}
-
-.online{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  font-size:12px;
-  color:#9ca9c4;
-}
-
-.dot{
-  width:8px;
-  height:8px;
-  background:#22c55e;
+.logoIcon{
+  width:43px;
+  height:43px;
   border-radius:50%;
-  box-shadow:0 0 10px #22c55e;
-}
-
-/* CHAT */
-#chat{
-  flex:1;
-  overflow-y:auto;
-  padding:28px 18px 150px;
-  scroll-behavior:smooth;
-}
-
-#chat::-webkit-scrollbar{
-  width:5px;
-}
-
-#chat::-webkit-scrollbar-thumb{
-  background:#27304a;
-  border-radius:10px;
-}
-
-/* WELCOME */
-.welcome{
-  text-align:center;
-  padding:35px 10px 25px;
-}
-
-.welcome-icon{
-  width:76px;
-  height:76px;
-  margin:0 auto 18px;
-  border-radius:24px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:38px;
-  background:linear-gradient(135deg,#7c3aed,#06b6d4);
+  background:linear-gradient(135deg,#087cff,#8d2cff);
+  box-shadow:0 0 25px #087cff66;
+  font-size:24px;
+}
+
+.logo span{
+  color:#12a8ff;
+}
+
+.menu{
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:28px 20px 18px;
+}
+
+.robot{
+  width:165px;
+  height:165px;
+  margin:auto;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:88px;
+  background:
+    radial-gradient(circle at 50% 40%,#263f73,#071b3b 65%,#020b1d);
+  border:2px solid #087cff;
   box-shadow:
-    0 0 35px rgba(124,58,237,.45),
-    inset 0 0 20px rgba(255,255,255,.12);
+    0 0 25px #087cff,
+    0 0 70px #087cff55,
+    inset 0 0 35px #008cff55;
   animation:float 3s ease-in-out infinite;
 }
 
 @keyframes float{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-7px)}
+  50%{transform:translateY(-8px)}
+}
+
+.hero h1{
+  font-size:34px;
+  margin-top:18px;
+  letter-spacing:1px;
+}
+
+.hero h1 span{
+  color:#0aa5ff;
+}
+
+.hero p{
+  margin-top:8px;
+  color:#b9c7df;
+  font-size:15px;
+}
+
+/* WELCOME */
+.welcome{
+  margin:10px 18px 18px;
+  padding:18px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#071d42,#0b1631);
+  border:1px solid #087cff55;
+  box-shadow:0 10px 35px #0005;
 }
 
 .welcome h2{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.welcome h2 span{
-  background:linear-gradient(90deg,#a78bfa,#22d3ee);
-  -webkit-background-clip:text;
-  color:transparent;
+  font-size:20px;
+  margin-bottom:7px;
 }
 
 .welcome p{
-  color:#8792aa;
+  color:#b9c7df;
   font-size:14px;
-  line-height:1.6;
 }
 
-/* QUICK BUTTONS */
-.quick{
-  display:flex;
-  gap:9px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin:5px auto 25px;
-  max-width:650px;
+/* FEATURES */
+.features{
+  padding:0 14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
 }
 
-.quick button{
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(255,255,255,.055);
-  color:#cbd5e1;
-  padding:10px 14px;
-  border-radius:14px;
+.card{
+  min-height:125px;
+  padding:18px;
+  border-radius:20px;
+  color:white;
+  border:1px solid rgba(255,255,255,.12);
   cursor:pointer;
-  font-size:13px;
   transition:.25s;
+  box-shadow:0 10px 25px #0005;
 }
 
-.quick button:hover{
-  transform:translateY(-2px);
-  border-color:#7c3aed;
-  background:rgba(124,58,237,.16);
+.card:hover{
+  transform:translateY(-4px);
 }
 
-/* MESSAGES */
-.msg{
-  max-width:78%;
-  padding:14px 17px;
-  margin:12px 0;
-  border-radius:20px;
-  line-height:1.55;
+.card:active{
+  transform:scale(.96);
+}
+
+.cardIcon{
+  font-size:31px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.card p{
+  font-size:12px;
+  opacity:.85;
+}
+
+.blue{
+  background:linear-gradient(135deg,#008cff,#1451d5);
+}
+
+.purple{
+  background:linear-gradient(135deg,#7b32ff,#9b1eff);
+}
+
+.green{
+  background:linear-gradient(135deg,#12c86b,#04a9a0);
+}
+
+.orange{
+  background:linear-gradient(135deg,#ff9b16,#ff4d21);
+}
+
+.pink{
+  background:linear-gradient(135deg,#ef278e,#9b1eff);
+}
+
+.cyan{
+  background:linear-gradient(135deg,#00bcd4,#007cff);
+}
+
+/* CHAT */
+.chatPage{
+  display:none;
+  padding:18px;
+}
+
+.chatBox{
+  min-height:60vh;
+  max-height:65vh;
+  overflow-y:auto;
+  padding-bottom:15px;
+}
+
+.message{
+  max-width:82%;
+  padding:13px 16px;
+  margin:10px 0;
+  border-radius:18px;
+  line-height:1.5;
   font-size:15px;
-  word-wrap:break-word;
-  animation:messageIn .3s ease;
 }
 
-@keyframes messageIn{
-  from{
-    opacity:0;
-    transform:translateY(8px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.msg.ai{
+.ai{
+  background:#102544;
+  border:1px solid #24538b;
   margin-right:auto;
-  background:rgba(255,255,255,.065);
-  border:1px solid rgba(255,255,255,.08);
-  border-top-left-radius:6px;
-  color:#e8edf7;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
-.msg.user{
+.user{
+  background:linear-gradient(135deg,#075fe9,#2935a9);
   margin-left:auto;
-  background:linear-gradient(135deg,#6d28d9,#2563eb);
-  border-top-right-radius:6px;
-  color:white;
-  box-shadow:0 8px 25px rgba(37,99,235,.2);
 }
 
-/* TYPING */
-.typing{
+.chatInput{
   display:flex;
-  gap:5px;
-  align-items:center;
+  gap:8px;
+  position:sticky;
+  bottom:80px;
 }
 
-.typing span{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#8b5cf6;
-  animation:bounce 1s infinite;
-}
-
-.typing span:nth-child(2){animation-delay:.15s}
-.typing span:nth-child(3){animation-delay:.3s}
-
-@keyframes bounce{
-  0%,60%,100%{transform:translateY(0)}
-  30%{transform:translateY(-5px)}
-}
-
-/* INPUT AREA */
-.bottom{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:15px 16px 18px;
-  background:linear-gradient(
-    transparent,
-    rgba(7,11,20,.92) 25%
-  );
-}
-
-.input-area{
-  max-width:760px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  gap:9px;
-  padding:7px;
-  border-radius:20px;
-  background:rgba(20,26,43,.92);
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:
-    0 10px 40px rgba(0,0,0,.35),
-    0 0 25px rgba(124,58,237,.08);
-  backdrop-filter:blur(20px);
-}
-
-#input{
+.chatInput input{
   flex:1;
-  min-width:0;
-  border:0;
-  outline:0;
-  background:transparent;
+  padding:15px 17px;
+  border-radius:30px;
+  border:1px solid #2764a5;
+  background:#091a34;
   color:white;
-  padding:13px 12px;
+  outline:none;
   font-size:15px;
-}
-
-#input::placeholder{
-  color:#68738b;
 }
 
 .send{
-  width:46px;
-  height:46px;
+  width:52px;
+  height:52px;
   border:0;
-  border-radius:15px;
-  cursor:pointer;
+  border-radius:50%;
+  background:#087cff;
   color:white;
-  font-size:19px;
-  background:linear-gradient(135deg,#7c3aed,#2563eb);
-  box-shadow:0 5px 18px rgba(99,102,241,.35);
-  transition:.2s;
-}
-
-.send:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(99,102,241,.5);
-}
-
-.send:active{
-  transform:scale(.94);
-}
-
-.clear{
-  width:42px;
-  height:42px;
-  border:0;
-  border-radius:13px;
-  background:rgba(255,255,255,.06);
-  color:#9aa5ba;
+  font-size:23px;
   cursor:pointer;
+  box-shadow:0 0 20px #087cff66;
+}
+
+/* TOOLS */
+.toolsPage{
+  display:none;
+  padding:20px 15px;
+}
+
+.toolsPage h2{
+  margin-bottom:18px;
+}
+
+.toolItem{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:17px;
+  margin-bottom:12px;
+  border-radius:18px;
+  background:#091a34;
+  border:1px solid #1b416e;
+}
+
+.toolItem .icon{
+  font-size:28px;
+}
+
+/* BOTTOM NAV */
+.bottomNav{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:600px;
+  height:72px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background:rgba(3,13,30,.94);
+  border-top:1px solid #1e4676;
+  backdrop-filter:blur(18px);
+  z-index:30;
+}
+
+.navItem{
+  text-align:center;
+  color:#8092ad;
+  font-size:11px;
+  cursor:pointer;
+}
+
+.navItem div{
+  font-size:23px;
+  margin-bottom:4px;
+}
+
+.navItem.active{
+  color:#08aaff;
+}
+
+/* POPUP */
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0009;
+  z-index:50;
+  align-items:flex-end;
+}
+
+.popupBox{
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  padding:25px;
+  background:#081a35;
+  border-radius:25px 25px 0 0;
+  border:1px solid #2363a5;
+}
+
+.popupBox h2{
+  margin-bottom:12px;
+}
+
+.close{
+  margin-top:20px;
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:25px;
+  background:#087cff;
+  color:white;
   font-size:16px;
 }
 
-.clear:hover{
-  background:rgba(255,255,255,.1);
-  color:white;
-}
-
-.footer{
-  text-align:center;
-  color:#58647b;
-  font-size:10px;
-  margin-top:8px;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  header{
-    height:68px;
-    padding:0 14px;
-  }
-
-  .logo{
-    width:40px;
-    height:40px;
-    font-size:21px;
-  }
-
-  .brand-text h1{
-    font-size:18px;
-  }
-
-  .brand-text p{
-    font-size:10px;
-  }
-
-  .welcome{
-    padding-top:25px;
-  }
-
-  .welcome-icon{
-    width:65px;
-    height:65px;
-    font-size:32px;
-  }
-
-  .welcome h2{
-    font-size:25px;
-  }
-
-  .msg{
-    max-width:88%;
-    font-size:14px;
-  }
-
-  #chat{
-    padding-left:12px;
-    padding-right:12px;
-  }
-
-  .bottom{
-    padding:10px 10px 13px;
-  }
-
-  .input-area{
-    border-radius:18px;
-  }
-
-  #input{
-    font-size:14px;
+/* DESKTOP */
+@media(min-width:700px){
+  .app{
+    box-shadow:0 0 80px #0008;
+    border-left:1px solid #12375f;
+    border-right:1px solid #12375f;
   }
 }
 </style>
@@ -396,279 +403,315 @@ header{
 
 <div class="app">
 
-<header>
-  <div class="brand">
-    <div class="logo">🤖</div>
+  <header class="header">
+    <div class="menu">☰</div>
 
-    <div class="brand-text">
-      <h1>Apna AI</h1>
-      <p>Your personal AI assistant</p>
+    <div class="logo">
+      <div class="logoIcon">🤖</div>
+      APNA <span>AI</span>
     </div>
+
+    <div style="font-size:23px;">👑</div>
+  </header>
+
+  <!-- HOME -->
+  <main id="home">
+
+    <section class="hero">
+      <div class="robot">🤖</div>
+
+      <h1>APNA <span>AI</span></h1>
+
+      <p>Har Sawal Ka Jawab...<br>
+      Ab Aapke Apne AI Ke Saath 💙</p>
+    </section>
+
+    <section class="welcome">
+      <h2>Hello 👋</h2>
+      <p>Main hoon Apna AI — aapka personal AI assistant.</p>
+    </section>
+
+    <section class="features">
+
+      <div class="card blue" onclick="openChat()">
+        <div class="cardIcon">💬</div>
+        <h3>AI Chat</h3>
+        <p>Kuch bhi poochho</p>
+      </div>
+
+      <div class="card purple" onclick="showPopup('Voice Chat','🎙️ Voice Chat\\n\\nYahan aap future me Apna AI se bolkar baat kar sakoge.')">
+        <div class="cardIcon">🎙️</div>
+        <h3>Voice Chat</h3>
+        <p>Bolke baat karo</p>
+      </div>
+
+      <div class="card green" onclick="showPopup('Image Analysis','🖼️ Image Analysis\\n\\nPhoto upload karke uske baare me information lene ka feature yahan add kiya ja sakta hai.')">
+        <div class="cardIcon">🖼️</div>
+        <h3>Image Analysis</h3>
+        <p>Photo samjho, info pao</p>
+      </div>
+
+      <div class="card orange" onclick="showPopup('Shayari & Writing','✍️ Shayari & Writing\\n\\nLove, attitude, sad shayari, caption aur essay ke liye Apna AI.')">
+        <div class="cardIcon">✍️</div>
+        <h3>Shayari & Writing</h3>
+        <p>Shayari, essay, caption</p>
+      </div>
+
+      <div class="card pink" onclick="showPopup('Translation','🌐 Translation\\n\\nHindi ↔ English aur kai languages ka translation feature.')">
+        <div class="cardIcon">文</div>
+        <h3>Translation</h3>
+        <p>Hindi ↔ English aur bhi</p>
+      </div>
+
+      <div class="card cyan" onclick="showPopup('Information','🔎 Information\\n\\nDuniya bhar ki information Apna AI se poochho.')">
+        <div class="cardIcon">🔎</div>
+        <h3>Information</h3>
+        <p>Duniya bhar ki jankari</p>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- CHAT -->
+  <section class="chatPage" id="chatPage">
+
+    <h2 style="margin-bottom:15px;">🤖 Apna AI Chat</h2>
+
+    <div class="chatBox" id="chatBox">
+
+      <div class="message ai">
+        Namaste! 👋 Main Apna AI hoon.<br>
+        Aap mujhse Hindi ya English mein baat kar sakte ho.
+      </div>
+
+    </div>
+
+    <div class="chatInput">
+
+      <input
+        id="messageInput"
+        type="text"
+        placeholder="Apna message likho..."
+        onkeydown="if(event.key==='Enter') sendMessage()"
+      >
+
+      <button class="send" onclick="sendMessage()">➤</button>
+
+    </div>
+
+  </section>
+
+
+  <!-- TOOLS -->
+  <section class="toolsPage" id="toolsPage">
+
+    <h2>🛠️ More Tools</h2>
+
+    <div class="toolItem">
+      <div class="icon">💗</div>
+      <div>
+        <b>Shayari Generator</b>
+        <p style="color:#91a4bf;font-size:12px;">Dil se nikli lafzon ki baat</p>
+      </div>
+    </div>
+
+    <div class="toolItem">
+      <div class="icon">📖</div>
+      <div>
+        <b>Story Writer</b>
+        <p style="color:#91a4bf;font-size:12px;">Kahani, caption, status</p>
+      </div>
+    </div>
+
+    <div class="toolItem">
+      <div class="icon">💡</div>
+      <div>
+        <b>Facts & Knowledge</b>
+        <p style="color:#91a4bf;font-size:12px;">Roz kuch naya seekho</p>
+      </div>
+    </div>
+
+    <div class="toolItem">
+      <div class="icon">✨</div>
+      <div>
+        <b>Custom Prompt</b>
+        <p style="color:#91a4bf;font-size:12px;">Jo chaho poochho</p>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+<nav class="bottomNav">
+
+  <div class="navItem active" onclick="homePage()">
+    <div>⌂</div>
+    Home
   </div>
 
-  <div class="online">
-    <span class="dot"></span>
-    Online
+  <div class="navItem" onclick="openChat()">
+    <div>💬</div>
+    Chat
   </div>
-</header>
+
+  <div class="navItem" onclick="openTools()">
+    <div>▦</div>
+    Tools
+  </div>
+
+  <div class="navItem" onclick="showPopup('Profile','👤 Apna AI Profile\\n\\nProfile section yahan banaya ja sakta hai.')">
+    <div>♙</div>
+    Profile
+  </div>
+
+</nav>
 
 
-<div id="chat">
+<!-- POPUP -->
+<div class="popup" id="popup">
 
-  <div class="welcome" id="welcome">
-    <div class="welcome-icon">✨</div>
+  <div class="popupBox">
 
-    <h2>Namaste! <span>Apna AI</span></h2>
+    <h2 id="popupTitle"></h2>
 
-    <p>
-      Main aapka personal AI assistant hoon.<br>
-      Mujhse kuch bhi pooch sakte ho.
+    <p id="popupText"
+       style="white-space:pre-line;color:#b9c7df;line-height:1.6;">
     </p>
-  </div>
 
-  <div class="quick" id="quick">
-    <button onclick="quickMessage('Hello Apna AI 👋')">👋 Hello</button>
-    <button onclick="quickMessage('Tumhara naam kya hai?')">🤖 Tumhara naam?</button>
-    <button onclick="quickMessage('Mujhe ek shayari sunao')">❤️ Shayari</button>
-    <button onclick="quickMessage('Mujhe motivate karo')">🔥 Motivation</button>
-  </div>
-
-  <div class="msg ai">
-    Namaste! 👋 Main <b>Apna AI</b> hoon.<br>
-    Aap Hindi ya English mein mujhse baat kar sakte ho. 😊
-  </div>
-
-</div>
-
-
-<div class="bottom">
-
-  <div class="input-area">
-
-    <button class="clear" onclick="clearChat()" title="Clear chat">
-      🗑️
-    </button>
-
-    <input
-      id="input"
-      type="text"
-      placeholder="Apna message likho..."
-      autocomplete="off"
-    >
-
-    <button class="send" onclick="send()" title="Send">
-      ➤
-    </button>
+    <button class="close" onclick="closePopup()">Close</button>
 
   </div>
-
-  <div class="footer">
-    Apna AI • Demo Mode
-  </div>
-
-</div>
 
 </div>
 
 
 <script>
 
-function quickMessage(text){
-  document.getElementById("input").value = text;
-  send();
+function hidePages(){
+  document.getElementById("home").style.display="none";
+  document.getElementById("chatPage").style.display="none";
+  document.getElementById("toolsPage").style.display="none";
 }
 
+function homePage(){
+  hidePages();
+  document.getElementById("home").style.display="block";
+  setActive(0);
+}
 
-function send(){
+function openChat(){
+  hidePages();
+  document.getElementById("chatPage").style.display="block";
+  setActive(1);
+}
 
-  const input = document.getElementById("input");
-  const chat = document.getElementById("chat");
+function openTools(){
+  hidePages();
+  document.getElementById("toolsPage").style.display="block";
+  setActive(2);
+}
 
-  const text = input.value.trim();
+function setActive(number){
+  document.querySelectorAll(".navItem").forEach((item,index)=>{
+    item.classList.toggle("active",index===number);
+  });
+}
+
+function sendMessage(){
+
+  const input=document.getElementById("messageInput");
+  const chat=document.getElementById("chatBox");
+
+  const text=input.value.trim();
 
   if(!text) return;
 
-  // User message
   chat.innerHTML += `
-    <div class="msg user">
+    <div class="message user">
       ${escapeHTML(text)}
     </div>
   `;
 
-  input.value = "";
+  input.value="";
 
-  chat.scrollTop = chat.scrollHeight;
+  chat.scrollTop=chat.scrollHeight;
 
-  // Typing animation
-  const typing = document.createElement("div");
-  typing.className = "msg ai";
-  typing.id = "typing";
+  setTimeout(()=>{
 
-  typing.innerHTML = `
-    <div class="typing">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  `;
+    const msg=text.toLowerCase();
+    let reply="";
 
-  chat.appendChild(typing);
-  chat.scrollTop = chat.scrollHeight;
+    if(msg.includes("hello") ||
+       msg.includes("hi") ||
+       msg.includes("namaste")){
 
+      reply="Namaste! 😊 Kaise ho? Main Apna AI hoon. Batao, aaj kya poochna hai?";
 
-  setTimeout(() => {
+    }else if(msg.includes("naam")){
 
-    const oldTyping = document.getElementById("typing");
+      reply="Mera naam Apna AI hai 🤖💙";
 
-    if(oldTyping){
-      oldTyping.remove();
+    }else if(msg.includes("kaise ho")){
+
+      reply="Main bilkul badhiya hoon 😎 Aap batao kaise ho?";
+
+    }else if(msg.includes("shayari")){
+
+      reply="Bilkul ❤️ Shayari ke liye bas batao — love, sad ya attitude?";
+
+    }else if(msg.includes("love")){
+
+      reply="Mohabbat woh nahi jo duniya ko dikhayi jaaye, mohabbat woh hai jo dil se nibhayi jaaye ❤️";
+
+    }else if(msg.includes("help")){
+
+      reply="Bilkul! 😊 Aap mujhse Hindi ya English mein koi bhi sawaal pooch sakte ho.";
+
+    }else{
+
+      reply="Demo mode mein hoon 🤖💙 Aapne poocha: \""+
+            escapeHTML(text)+
+            "\". Real AI API connect karne ke baad main aur bhi powerful jawab de sakunga.";
+
     }
 
-    let reply = getReply(text.toLowerCase());
-
     chat.innerHTML += `
-      <div class="msg ai">
+      <div class="message ai">
         ${reply}
       </div>
     `;
 
-    chat.scrollTop = chat.scrollHeight;
+    chat.scrollTop=chat.scrollHeight;
 
-  },700);
+  },600);
 }
-
-
-function getReply(msg){
-
-  if(
-    msg.includes("hello") ||
-    msg.includes("hi") ||
-    msg.includes("namaste") ||
-    msg.includes("नमस्ते")
-  ){
-    return "Namaste! 😊 Aap kaise ho? Main Apna AI hoon. Aaj kya baat karni hai?";
-  }
-
-
-  if(
-    msg.includes("naam") ||
-    msg.includes("name")
-  ){
-    return "Mera naam <b>Apna AI</b> hai 🤖✨. Ye aapka apna personal AI assistant hai.";
-  }
-
-
-  if(
-    msg.includes("kaise ho") ||
-    msg.includes("how are you")
-  ){
-    return "Main bilkul badhiya hoon 😎🔥 Aap batao, aap kaise ho?";
-  }
-
-
-  if(
-    msg.includes("shayari") ||
-    msg.includes("शायरी")
-  ){
-    return "❤️ <b>Shayari:</b><br><br>\"Dil se jo baat nikle, woh khaas hoti hai,<br>Har kisi ke naseeb mein kahan aisi mulaqat hoti hai...\" ✨";
-  }
-
-
-  if(
-    msg.includes("love") ||
-    msg.includes("pyaar") ||
-    msg.includes("pyar")
-  ){
-    return "❤️ Pyaar woh ehsaas hai jo lafzon se nahi, aankhon se samajh aata hai.";
-  }
-
-
-  if(
-    msg.includes("motivate") ||
-    msg.includes("motivation")
-  ){
-    return "🔥 Haar mat maanna! Aaj ka chhota step hi kal ki badi success ban sakta hai. Bas lage raho 💪";
-  }
-
-
-  if(
-    msg.includes("thank") ||
-    msg.includes("thanks")
-  ){
-    return "You're welcome! 😊 Jab bhi zarurat ho, Apna AI yahin hai.";
-  }
-
-
-  if(
-    msg.includes("help") ||
-    msg.includes("madad")
-  ){
-    return "Bilkul! 🤝 Apna message likho aur main jitni help kar sakta hoon, karunga.";
-  }
-
-
-  return `
-    Demo mode mein hoon 🤖<br><br>
-    Aapne poocha: <b>${escapeHTML(msg)}</b><br><br>
-    Abhi mere paas real AI API connected nahi hai.
-    API connect hone ke baad main real AI answers de sakunga. 🚀
-  `;
-}
-
 
 function escapeHTML(text){
 
-  return text
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  const div=document.createElement("div");
+  div.textContent=text;
+  return div.innerHTML;
 
 }
 
+function showPopup(title,text){
 
-function clearChat(){
-
-  const chat = document.getElementById("chat");
-
-  chat.innerHTML = `
-    <div class="welcome">
-      <div class="welcome-icon">✨</div>
-
-      <h2>Welcome to <span>Apna AI</span></h2>
-
-      <p>
-        Main aapka personal AI assistant hoon.<br>
-        Mujhse kuch bhi pooch sakte ho.
-      </p>
-    </div>
-
-    <div class="quick">
-      <button onclick="quickMessage('Hello Apna AI 👋')">👋 Hello</button>
-      <button onclick="quickMessage('Tumhara naam kya hai?')">🤖 Tumhara naam?</button>
-      <button onclick="quickMessage('Mujhe ek shayari sunao')">❤️ Shayari</button>
-      <button onclick="quickMessage('Mujhe motivate karo')">🔥 Motivation</button>
-    </div>
-
-    <div class="msg ai">
-      Chat clear ho gayi. 😊<br>
-      Batao, ab kya baat karni hai?
-    </div>
-  `;
+  document.getElementById("popupTitle").textContent=title;
+  document.getElementById("popupText").textContent=text;
+  document.getElementById("popup").style.display="flex";
 
 }
 
+function closePopup(){
 
-document
-  .getElementById("input")
-  .addEventListener("keydown", function(e){
+  document.getElementById("popup").style.display="none";
 
-    if(e.key === "Enter"){
-      send();
-    }
-
-  });
+}
 
 </script>
 
